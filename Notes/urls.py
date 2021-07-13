@@ -17,10 +17,14 @@ from django.contrib import admin
 from django.urls import path
 from myApp import views
 urlpatterns = [
-    path('', views.viewNote),
+	path('',views.register),
 	path('admin/', admin.site.urls),
-	path('createNote/',views.createNote,name="create"),
-	path('viewNote/',views.viewNote,name="view"),
+	path('createNote/<int:reqId>',views.createNote,name="create"),
+	path('viewNote/<int:reqId>',views.viewNote,name="view"),
 	path('deleteNote/<int:Id>',views.deleteNote,name="deleteNote"),
 	path('update/<int:Id>',views.update,name="update"),
+	path("register/", views.register, name="register"),
+	path("login", views.login_req, name="login"),
+	path('signout/',views.signout,name='signout'),
 ]
+
